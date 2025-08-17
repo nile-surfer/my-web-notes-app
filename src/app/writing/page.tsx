@@ -95,7 +95,7 @@ export default function WritingPage() {
       <div className="mt-16 p-8 bg-gray-50 rounded-xl">
         <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
         <p className="text-gray-600 mb-6">
-          Have a question or want to discuss any of these topics? I'd love to hear from you.
+          Have a question or want to discuss any of these topics? I&apos;d love to hear from you.
         </p>
         <a 
           href="mailto:hello@example.com" 

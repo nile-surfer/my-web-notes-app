@@ -1,10 +1,12 @@
+import Link from 'next/link';
+
 export default function ProjectsPage() {
   return (
     <>
       <section className="mb-16">
         <h1 className="text-4xl font-bold mb-6">Projects</h1>
         <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mb-12">
-          A collection of projects I've built, designed, or contributed to. Each one 
+          A collection of projects I&apos;ve built, designed, or contributed to. Each one 
           represents a different challenge and learning opportunity.
         </p>
       </section>
@@ -21,9 +23,9 @@ export default function ProjectsPage() {
             <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">React</span>
             <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">TypeScript</span>
           </div>
-          <a href="/" className="text-blue-600 hover:text-blue-800 font-medium">
+          <Link href="/" className="text-blue-600 hover:text-blue-800 font-medium">
             View Project →
-          </a>
+          </Link>
         </div>
 
         <div className="p-8 border border-gray-200 rounded-xl hover:border-gray-300 transition-all hover:shadow-lg">
@@ -37,9 +39,9 @@ export default function ProjectsPage() {
             <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Development</span>
             <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">UX</span>
           </div>
-          <a href="/" className="text-blue-600 hover:text-blue-800 font-medium">
+          <Link href="/" className="text-blue-600 hover:text-blue-800 font-medium">
             View Project →
-          </a>
+          </Link>
         </div>
 
         <div className="p-8 border border-gray-200 rounded-xl hover:border-gray-300 transition-all hover:shadow-lg">

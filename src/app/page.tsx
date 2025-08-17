@@ -5,7 +5,7 @@ export default function Home() {
       <section className="mb-16">
         <h1 className="text-4xl font-bold mb-6">Kevin Fernandez</h1>
         <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
-          Hey, I'm Kevin. I'm a developer, designer, and creator passionate about building 
+          Hey, I&apos;m Kevin. I&apos;m a developer, designer, and creator passionate about building 
           meaningful digital experiences. I love working at the intersection of technology 
           and human-centered design.
         </p>
