@@ -1,5 +1,42 @@
 // Brian Lovin website interactions
 document.addEventListener('DOMContentLoaded', function() {
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved theme preference or default to dark mode
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    
+    // Theme toggle click handler
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        // Add transition class for smooth switching
+        document.body.classList.add('theme-transitioning');
+        
+        // Update theme
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Add a subtle animation effect using opacity instead of transform
+        document.body.style.opacity = '0.98';
+        setTimeout(() => {
+            document.body.style.opacity = '1';
+        }, 150);
+        
+        // Remove transition class after animation
+        setTimeout(() => {
+            document.body.classList.remove('theme-transitioning');
+        }, 300);
+        
+        // Add haptic feedback for mobile devices
+        if ('vibrate' in navigator) {
+            navigator.vibrate(50);
+        }
+    });
+    
     // Sidebar navigation functionality
     const sidebarLinks = document.querySelectorAll('.sidebar .nav-link');
     const currentPath = window.location.hash || '#home';
@@ -102,18 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, (index * 50) + 500);
     });
 
-    // Add focus styles for accessibility
-    const focusableElements = document.querySelectorAll('a, button, [tabindex]');
-    focusableElements.forEach(element => {
-        element.addEventListener('focus', function() {
-            this.style.outline = '2px solid #3b82f6';
-            this.style.outlineOffset = '2px';
-        });
-        
-        element.addEventListener('blur', function() {
-            this.style.outline = 'none';
-        });
-    });
+    // Focus styles are handled by CSS for consistent theming
 
     // Add scroll-triggered animations
     const observerOptions = {
