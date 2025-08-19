@@ -13,6 +13,7 @@ html {
 :root {
     /* Light mode colors */
     --bg-primary-light: #ffffff;
+    --bg-primary-light-rgb: 255, 255, 255;
     --bg-secondary-light: #f8fafc;
     --bg-tertiary-light: #f1f5f9;
     --border-light: #e2e8f0;
@@ -24,6 +25,7 @@ html {
     
     /* Dark mode colors */
     --bg-primary-dark: #0a0a0a;
+    --bg-primary-dark-rgb: 10, 10, 10;
     --bg-secondary-dark: #1a1a1a;
     --bg-tertiary-dark: #262626;
     --border-dark: #1a1a1a;
@@ -35,6 +37,7 @@ html {
     
     /* Default to dark mode */
     --bg-primary: var(--bg-primary-dark);
+    --bg-primary-rgb: var(--bg-primary-dark-rgb);
     --bg-secondary: var(--bg-secondary-dark);
     --bg-tertiary: var(--bg-tertiary-dark);
     --border: var(--border-dark);
@@ -48,6 +51,7 @@ html {
 /* Light mode */
 [data-theme="light"] {
     --bg-primary: var(--bg-primary-light);
+    --bg-primary-rgb: var(--bg-primary-light-rgb);
     --bg-secondary: var(--bg-secondary-light);
     --bg-tertiary: var(--bg-tertiary-light);
     --border: var(--border-light);
@@ -61,12 +65,19 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--bg-primary);
+    background-image: radial-gradient(circle, #ededed 1px, transparent 1px);
+    background-size: 20px 20px;
     color: var(--text-primary);
     line-height: 1.6;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.3s ease, color 0.3s ease, opacity 0.15s ease;
+}
+
+/* Dark mode dotted background */
+[data-theme="dark"] body {
+    background-image: radial-gradient(circle, rgba(237, 237, 237, 0.08) 1px, transparent 1px);
 }
 
 /* Skip link for accessibility */
@@ -108,7 +119,7 @@ body {
 /* Left Sidebar Navigation */
 .sidebar {
     width: 280px;
-    background-color: var(--bg-primary);
+    background-color: rgba(var(--bg-primary-rgb), 0.5);
     border-right: 1px solid var(--border);
     position: fixed;
     height: 100vh;
@@ -318,13 +329,13 @@ body {
 /* Main Content Area */
 .main-content {
     flex: 1;
-    background-color: var(--bg-primary);
     min-height: 100vh;
     transition: background-color 0.3s ease;
     padding-top: 32px; /* Maintain the same top distance that the header provided */
     padding-bottom: 64px;
     max-width: 800px; /* Limit content width for better readability */
     margin-left: calc(280px + (100vw - 280px - 800px) / 2); /* Center panel accounting for sidebar */
+    margin-top: 60px; /* Add top margin for better spacing */
 }
 
 /* Hero Section */
