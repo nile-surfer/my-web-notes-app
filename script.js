@@ -318,3 +318,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle window resize
     window.addEventListener('resize', createMobileToggle);
 });
+
+// Expandable content functionality
+function toggleExpand(elementId) {
+    const content = document.getElementById(elementId);
+    const button = content.previousElementSibling;
+    const expandIcon = button.querySelector('.expand-icon');
+    
+    if (content.style.display === 'none') {
+        // Expand the content inline
+        content.style.display = 'inline';
+        content.style.opacity = '0';
+        
+        // Animate in
+        setTimeout(() => {
+            content.style.transition = 'opacity 0.3s ease';
+            content.style.opacity = '1';
+        }, 10);
+        
+        // Add subtle animation to the icon
+        expandIcon.style.transform = 'scale(1.1)';
+        expandIcon.style.background = 'var(--bg-secondary)';
+        
+        // Add smooth transition to icon
+        expandIcon.style.transition = 'all 0.3s ease';
+        
+        // Hide the button immediately after expansion
+        button.style.display = 'none';
+        
+    } else {
+        // Collapse the content
+        content.style.transition = 'opacity 0.3s ease';
+        content.style.opacity = '0';
+        
+        // Hide after animation
+        setTimeout(() => {
+            content.style.display = 'none';
+        }, 300);
+        
+        // Reset icon state
+        expandIcon.style.transform = 'scale(1)';
+        expandIcon.style.background = 'var(--bg-tertiary)';
+    }
+}
