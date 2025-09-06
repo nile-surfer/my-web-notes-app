@@ -1,6 +1,4 @@
-# Brian Lovin Website Replication
-
-A faithful recreation of [Brian Lovin's personal website](https://brianlovin.com/) featuring a clean, minimalist design with a dark theme and excellent typography.
+# Website recreation
 
 ## Design Features
 
